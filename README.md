@@ -12,32 +12,30 @@ This is a QA Automation Testing Framework built to cover different types of soft
 ---
 
 ## 📌 Project Structure
---
 Automated-Testing-Framework/
-│
-├── api-tests/
-│ └── Postman collections & environments
-│
-├── automation/
-│ └── Selenium Java framework (POM design pattern)
-│
-├── ci-cd/
-│ └── Jenkins pipelines and CI configuration
-│
-├── database/
-│ └── SQL scripts and database validation
-│
-├── docs/
-│ └── Test plans and documentation
-│
-├── manual-tests/
-│ └── Manual test cases
-│
-├── performance/
-│ └── JMeter performance test plans
-│
-└── README.md
---
+
+- api-tests/  
+  Postman collections & environments  
+
+- automation/  
+  Selenium Java framework (POM design pattern)  
+
+- ci-cd/  
+  Jenkins pipelines and CI configuration  
+
+- database/  
+  SQL scripts and database validation  
+
+- docs/  
+  Test plans and documentation  
+
+- manual-tests/  
+  Manual test cases  
+
+- performance/  
+  JMeter performance test plans  
+
+- README.md
 
 ## 🛠️ Tools & Technologies
 
