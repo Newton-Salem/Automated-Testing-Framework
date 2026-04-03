@@ -83,7 +83,7 @@ Includes:
 
 ## 👨‍💻 Team Members
 
-- QA Engineer أHassan
+- QA Engineer Hassan
 - QA Engineer Mohamed Essam
 - QA Engineer Ahmed Mahmoud 
 - QA Engineer Hatem
