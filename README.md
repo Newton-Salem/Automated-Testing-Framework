@@ -12,7 +12,7 @@ This is a QA Automation Testing Framework built to cover different types of soft
 ---
 
 ## 📌 Project Structure
----
+--
 Automated-Testing-Framework/
 │
 ├── api-tests/
@@ -37,7 +37,7 @@ Automated-Testing-Framework/
 │ └── JMeter performance test plans
 │
 └── README.md
----
+--
 
 ## 🛠️ Tools & Technologies
 
