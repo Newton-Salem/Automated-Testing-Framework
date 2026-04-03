@@ -33,9 +33,9 @@ Automated-Testing-Framework/
 - Maven
 - Postman
 - Apache JMeter
-- Jenkins :contentReference[oaicite:0]{index=0}
-- Jira :contentReference[oaicite:1]{index=1}
-- Git & GitHub :contentReference[oaicite:2]{index=2}
+- Jenkins 
+- Jira 
+- Git & GitHub 
 
 ---
 
