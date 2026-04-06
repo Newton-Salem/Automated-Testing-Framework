@@ -74,7 +74,7 @@ Performance tests are created using Apache JMeter:
 All test documentation is located in: `docs`
 
 ### 📌 Test Plan
-- 📖 [View Markdown](docs/test-plan/test_plan.md)
+- 📖 [View Markdown](docs/test-plan/test-plan.md)
 - 📥 [Download PDF](docs/test-plan/test_plan.pdf)
 - 📝 [Editable DOCX](docs/test-plan/test_plan.docx)
 
