@@ -71,15 +71,18 @@ Performance tests are created using Apache JMeter:
 
 ## 📄 Test Documentation
 
-All test documentation is located in: docs/test-plan/
+All test documentation is located in: `docs`
 
-Includes:
+### 📌 Test Plan
+- 📖 [View Markdown](docs/test-plan/testplan.md)
+- 📥 [Download PDF](docs/test-plan/TestPlan.pdf)
+- 📝 [Editable DOCX](docs/test-plan/TestPlan.docx)
 
-- Test Plan
-- Test Strategy
-- Test Cases
+### 📌 Test Strategy
+- 📖 [View Markdown](docs/test-plan/test-strategy.md)
 
----
+### 📌 Test Cases
+- 📖 [View Test Cases](docs/test-plan/test-cases.md)
 
 ## 👨‍💻 Team Members
 
