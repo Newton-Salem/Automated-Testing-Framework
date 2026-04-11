@@ -58,9 +58,9 @@ Most functionalities are working correctly. However, issues exist in address aut
 
 ## 🔹 G5 – UI, Navigation & Miscellaneous Features
 
-- **Total Test Cases:** 12  
-- **Passed:** 8  
-- **Failed:** 4  
+- **Total Test Cases:** 20
+- **Passed:** 6
+- **Failed:** 12  
 
 **Summary:**  
 Testing covered multiple features including login, search, cart, and checkout flows. Results indicate moderate stability with several issues in validation, usability, and UI consistency.
@@ -116,7 +116,7 @@ Testing covered multiple features including login, search, cart, and checkout fl
 
 ## 🔸 G5 – UI/UX, Validation & Functional Issues
 
-- **Total Bugs:** 20  
+- **Total Bugs:** 12
 
 **Issues:**
 - Multiple UI/UX inconsistencies  
@@ -135,7 +135,7 @@ Overall, the system demonstrates **moderate stability** across all modules.
 - Search accuracy
 - UI/UX consistency
 - Cart usability enhancements
-
+  
 ---
 
 # 📁 File Structure
