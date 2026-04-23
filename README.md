@@ -83,6 +83,8 @@ All test documentation is located in: `docs`
 
 ### 📌 Test Cases
 - 📖 [View Test Cases](docs/test-plan/test-cases.md)
+  
+---
 
 ## 🔗 Project Integrations
 
