@@ -91,7 +91,7 @@ All test documentation is located in: `docs`
 ### 📌 Jira Board
 We use Jira for sprint planning, task tracking, and bug management.
 
-- 🧭 Jira Board: https://
+- 🧭 [Jira Board](https://aboalershadhassan.atlassian.net/jira/software/projects/DEPI/summary?atlOrigin=eyJpIjoiNWU2YTQzYmNmYjk1NGUwMWI1NjBiYzIzMzVkMDM0NjciLCJwIjoiaiJ9)
   
 ---
 
