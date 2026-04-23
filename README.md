@@ -84,6 +84,26 @@ All test documentation is located in: `docs`
 ### 📌 Test Cases
 - 📖 [View Test Cases](docs/test-plan/test-cases.md)
 
+## 🔗 Project Integrations
+
+### 📌 Jira Board
+We use Jira for sprint planning, task tracking, and bug management.
+
+- 🧭 Jira Board: https://
+  
+---
+
+### 📌 Postman API Testing
+All API tests are created and organized using Postman.
+
+- 📦 Postman Collection Location:  
+  (api-tests/collections/)
+
+- 📌 Postman Workspace / Public Link:  
+  [postman-workspace-link](https://newtonsalem669-8413605.postman.co/workspace/Newton-Salem's-Workspace~0d4e24d1-2842-4d00-8be6-739cf662ec26/collection/53523174-9ead3703-cab2-4841-a9d8-8e5089352025?action=share&creator=53523174&active-environment=53523174-ade53947-7d07-43ba-ac1d-1008edbdc1b2) 
+
+---
+
 ## 👨‍💻 Team Members
 
 - QA Engineer Hassan Yehia 
