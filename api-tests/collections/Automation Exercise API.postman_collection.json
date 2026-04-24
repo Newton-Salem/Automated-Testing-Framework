@@ -1,0 +1,1416 @@
+{
+  "info": {
+    "_postman_id": "9ead3703-cab2-4841-a9d8-8e5089352025",
+    "name": "Automation Exercise API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53523174",
+    "_collection_link": "https://go.postman.co/collection/53523174-9ead3703-cab2-4841-a9d8-8e5089352025?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Products & Search",
+      "item": [
+        {
+          "name": "[Product] Get All Products - Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 200\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products array exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.products).to.exist;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/productsList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Product] Get All Products - Invalid Method POST",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Method not allowed\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(405);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message correct\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.include(\"not supported\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/productsList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Product] Search - Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Search success response\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products array exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.products).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Products list is not empty\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.products.length).to.be.greaterThan(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "search_product",
+                  "value": "top",
+                  "type": "text",
+                  "uuid": "9e6e8673-aff0-4c1c-bf90-605f40fd2eb5"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/searchProduct",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Product] Search - Missing Parameter",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Bad request response\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message correct\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.include(\"missing\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/searchProduct",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Brands",
+      "item": [
+        {
+          "name": "[Brand] Get All Brands - Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 200\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Brands array exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.brands).to.be.an(\"array\");\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Brands list is not empty\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.brands.length).to.be.greaterThan(0);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/brandsList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "brandsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Brand] Get All Brands - Invalid Method POST",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Method not allowed\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(405);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message correct\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.include(\"not supported\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/brandsList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "brandsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Brand] Get All Brands - Invalid Method PUT",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Method not allowed\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(405);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message correct\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.include(\"not supported\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/brandsList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "brandsList"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "[Auth] Login - Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response has data\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData).to.exist;\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "zyadmhmoud23@gmail.com",
+                  "type": "text",
+                  "uuid": "997f8686-1487-46d6-a9f4-44431c6cae84"
+                },
+                {
+                  "key": "password",
+                  "value": "2372004",
+                  "type": "text",
+                  "uuid": "41e77fc7-302b-440a-a79c-848b860abbab"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Auth] Login - Missing Email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Bad request error\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(400);\r",
+                  "});\r",
+                  "console.log(pm.response.json());\r",
+                  "pm.test(\"Error message is correct\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.include(\"missing\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "password",
+                  "value": "2372004",
+                  "type": "text",
+                  "uuid": "1d84ec46-f12f-4b31-848e-8781f5f4f140"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Auth] Login - Invalid Method DELETE",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Method not allowed\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(405);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message is correct\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.include(\"not supported\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[Auth] Login - Invalid Credentials",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Response code is 404 in body\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Error message is correct\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.include(\"not found\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "wrong@wrong.com",
+                  "type": "text",
+                  "uuid": "54d4f1b2-e875-40d0-9220-a80b467f01ab"
+                },
+                {
+                  "key": "password",
+                  "value": "wrongpass123",
+                  "type": "text",
+                  "uuid": "dce53544-c844-4b08-9d71-e9844e2f28f1"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User Account Flow",
+      "item": [
+        {
+          "name": "[User] Create Account - Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"User created successfully\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.eql(\"User created!\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Hassan Yehia",
+                  "type": "text",
+                  "uuid": "aa434685-869f-462f-8935-cf754590dcb6"
+                },
+                {
+                  "key": "email",
+                  "value": "uniquueee@test.com",
+                  "type": "text",
+                  "uuid": "b93aa488-a9e4-4d2c-ac73-0b13fdf93a53"
+                },
+                {
+                  "key": "password",
+                  "value": "123456",
+                  "type": "text",
+                  "uuid": "2b4051a6-6fb6-4b48-9078-aac4ff7ef846"
+                },
+                {
+                  "key": "title",
+                  "value": "Mr",
+                  "type": "text",
+                  "uuid": "082287e5-71f3-4d1e-bf8f-5ed8434f4b4e"
+                },
+                {
+                  "key": "birth date",
+                  "value": "10",
+                  "type": "text",
+                  "uuid": "0c6a6709-65b5-4909-8222-84a75e37f195"
+                },
+                {
+                  "key": "birth month",
+                  "value": "May",
+                  "type": "text",
+                  "uuid": "7617a104-00e3-4a6b-ac21-5f3c0abb7f57"
+                },
+                {
+                  "key": "birth year",
+                  "value": "2003",
+                  "type": "text",
+                  "uuid": "2efffe84-517d-4ac0-a1a2-22b5e191a83c"
+                },
+                {
+                  "key": "firstname",
+                  "value": "Hassan",
+                  "type": "text",
+                  "uuid": "b41f247a-b822-4896-8f31-f7b619e7b0c1"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Yehia",
+                  "type": "text",
+                  "uuid": "8fca11ec-99ef-4334-938c-00ee7a1e9483"
+                },
+                {
+                  "key": "Company",
+                  "value": "Test Company",
+                  "type": "text",
+                  "uuid": "7cc37225-cd4d-47fc-88c9-732defe4be62"
+                },
+                {
+                  "key": "address1",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "b1b3df58-9598-49f0-86ed-dcfc9b65ae1d"
+                },
+                {
+                  "key": "address2",
+                  "value": "Nasr City",
+                  "type": "text",
+                  "uuid": "7e572b4c-d9cf-46b4-a870-2a3d1574f618"
+                },
+                {
+                  "key": "country",
+                  "value": "Egypt",
+                  "type": "text",
+                  "uuid": "88712156-dcad-471e-8407-772f805e7564"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "12345",
+                  "type": "text",
+                  "uuid": "eafa2cd2-d256-4f99-8378-565d23dd844a"
+                },
+                {
+                  "key": "state",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "43d1f153-b2ef-40c7-ba12-b9a7ce0d3ed8"
+                },
+                {
+                  "key": "city",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "6b8c8995-c794-4f85-b9b3-1fbe93c18b42"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "01000000000",
+                  "type": "text",
+                  "uuid": "bfa8fb0d-8a86-4d06-ac45-891a4916e77c"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/createAccount",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "createAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[User] Update Account - Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"User updated successfully\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.eql(\"User updated!\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Hassan Yehia",
+                  "type": "text",
+                  "uuid": "6597a8c9-640c-4597-8751-565d77e45ee1"
+                },
+                {
+                  "key": "email",
+                  "value": "uniquuee@test.com",
+                  "type": "text",
+                  "uuid": "b023dbb1-ba08-4eca-bef6-8403636bdfea"
+                },
+                {
+                  "key": "password",
+                  "value": "123456",
+                  "type": "text",
+                  "uuid": "b504e10a-9d0e-4c66-9e84-a50d27730a82"
+                },
+                {
+                  "key": "title",
+                  "value": "Mr",
+                  "type": "text",
+                  "uuid": "aba6b86f-ed62-48aa-97c6-d95f8defc98b"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "10",
+                  "type": "text",
+                  "uuid": "477e0e74-925f-4c06-8b04-21993423b290"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "May",
+                  "type": "text",
+                  "uuid": "054f317f-476c-43d8-93e7-4e22fbb9e02a"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "2003",
+                  "type": "text",
+                  "uuid": "9d32f068-83c1-4b47-9644-7bd492c13ce0"
+                },
+                {
+                  "key": "firstname",
+                  "value": "Hassan",
+                  "type": "text",
+                  "uuid": "bd306793-7733-4c37-88a1-d911d51b1e50"
+                },
+                {
+                  "key": "lastname",
+                  "value": "Yehia",
+                  "type": "text",
+                  "uuid": "aa36fed8-81d7-4161-abb5-c74891c1b366"
+                },
+                {
+                  "key": "company ",
+                  "value": "New Company",
+                  "type": "text",
+                  "uuid": "8b078605-8854-443a-b905-6041121dd72f"
+                },
+                {
+                  "key": "address1 ",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "24620347-0f9a-4028-9eee-433ce5b79e56"
+                },
+                {
+                  "key": "address2 ",
+                  "value": "Fifth settelment",
+                  "type": "text",
+                  "uuid": "06442784-fd38-4967-8541-77c204ce4d0a"
+                },
+                {
+                  "key": "country ",
+                  "value": "Egypt",
+                  "type": "text",
+                  "uuid": "147257d9-10c8-49fa-9af8-d5790754557c"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "12345",
+                  "type": "text",
+                  "uuid": "cc267779-afad-4178-a65f-60a4871fa4c5"
+                },
+                {
+                  "key": "state ",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "696d3cb8-7eea-4285-8bfe-ab59a178bec0"
+                },
+                {
+                  "key": "city",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "ed42d946-82a3-4c41-aab9-d7ccaf337688"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "01000000000",
+                  "type": "text",
+                  "uuid": "e5f39c25-2435-4455-868e-d0790c5efeb3"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/updateAccount",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "updateAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[User] Get User - Valid",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"User data returned\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "    pm.expect(jsonData.user.email).to.eql(\"uniquuee@test.com\");\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/getUserDetailByEmail?email=uniquuee@test.com",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "getUserDetailByEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "uniquuee@test.com"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "End-to-End / Integration",
+      "item": [
+        {
+          "name": "[E2E] Create Account",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "let email = \"test\" + Date.now() + \"@gmail.com\";\r",
+                  "pm.environment.set(\"email\", email);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Account created\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(201);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Test User",
+                  "type": "text",
+                  "uuid": "be6e48b7-b3c8-4afb-8f89-0f2cc86d22b4"
+                },
+                {
+                  "key": "email",
+                  "value": "{{email}}",
+                  "type": "text",
+                  "uuid": "1f294af2-a81c-4b59-b9bc-010e0b24cd25"
+                },
+                {
+                  "key": "password",
+                  "value": "123456",
+                  "type": "text",
+                  "uuid": "eea47eb6-45d5-474f-a9b2-a835f26cf5ad"
+                },
+                {
+                  "key": "title",
+                  "value": "Mr",
+                  "type": "text",
+                  "uuid": "d22cbc8b-cb8f-4e49-9ad2-c316fb0f1079"
+                },
+                {
+                  "key": "birth date",
+                  "value": "10",
+                  "type": "text",
+                  "uuid": "b3cfedad-70cc-4c9d-b1eb-ade64d10e273"
+                },
+                {
+                  "key": "birth month",
+                  "value": "May",
+                  "type": "text",
+                  "uuid": "e15b8393-800e-47cf-81eb-45eaaa9bbe1a"
+                },
+                {
+                  "key": "birth year",
+                  "value": "2006",
+                  "type": "text",
+                  "uuid": "d0375b63-abb3-4b6a-9542-0398aa8bd649"
+                },
+                {
+                  "key": "firstname",
+                  "value": "test",
+                  "type": "text",
+                  "uuid": "3b57b235-2ed0-4f39-b638-429059f9ca74"
+                },
+                {
+                  "key": "lastname",
+                  "value": "user",
+                  "type": "text",
+                  "uuid": "2b8fd0ba-e33f-40e8-8827-1e544b9c6652"
+                },
+                {
+                  "key": "Company",
+                  "value": "Test Company",
+                  "type": "text",
+                  "uuid": "0453c2f0-a498-4e32-a49f-3f11cdc9f2fa"
+                },
+                {
+                  "key": "address1",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "19753596-330b-4e9c-ad20-6470f5aed3f0"
+                },
+                {
+                  "key": "address2",
+                  "value": "Nasr City",
+                  "type": "text",
+                  "uuid": "b3f1096a-4549-4fcb-842d-7cb87c3811a1"
+                },
+                {
+                  "key": "country",
+                  "value": "Egypt",
+                  "type": "text",
+                  "uuid": "3d98ec33-c156-48e7-acae-70728662f7f0"
+                },
+                {
+                  "key": "state",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "ac72448b-6ac8-4fcd-b5f9-c2001dc8a5f4"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "12345",
+                  "type": "text",
+                  "uuid": "d5cadd5e-8c37-4c3b-a6ec-6bf75d50c09f"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "01000000000",
+                  "type": "text",
+                  "uuid": "99989ffc-7c48-46bc-b20b-9c80cf4035d1"
+                },
+                {
+                  "key": "city",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "8bfc0e5d-acde-41e6-b673-0fad9b6c2c79"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/createAccount",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "createAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[E2E] Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Login success\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "{{email}}",
+                  "type": "text",
+                  "uuid": "bd6ccb1b-5ee6-4bc5-a698-ee8dc7b36505"
+                },
+                {
+                  "key": "password",
+                  "value": "123456",
+                  "type": "text",
+                  "uuid": "2e5e067e-b5f0-417a-a05e-da914421f167"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/verifyLogin",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[E2E] Search Product",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Search success\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "search_product",
+                  "value": "top",
+                  "type": "text",
+                  "uuid": "e4c8b1d8-e0bb-4a1f-9e78-a24cf7d589dd"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/searchProduct",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "searchProduct"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[E2E] Get All Products",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Products fetched\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.products).to.be.an(\"array\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/productsList",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[E2E]  Update Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Account updated\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "address1 ",
+                  "value": "New Cairo",
+                  "type": "text",
+                  "uuid": "8692cf2f-7dea-4764-b5fd-653271dabcf3"
+                },
+                {
+                  "key": "address2 ",
+                  "value": "Fifth settelment",
+                  "type": "text",
+                  "uuid": "9aabf751-61d1-4666-bf13-859ae8bd0575"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "10",
+                  "type": "text",
+                  "uuid": "5c531a20-eaf1-4d54-b357-7f59f94ab442"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "May",
+                  "type": "text",
+                  "uuid": "96dcba74-fad5-4b0b-aace-146c4021daf5"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "2003",
+                  "type": "text",
+                  "uuid": "b37695c7-fac6-4914-9202-17477be8c6d8"
+                },
+                {
+                  "key": "city",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "31d31477-c611-4ef3-a779-8ec7ad73e352"
+                },
+                {
+                  "key": "company ",
+                  "value": "New Company",
+                  "type": "text",
+                  "uuid": "9c40e896-8185-4df2-9466-dbed8c23b176"
+                },
+                {
+                  "key": "country ",
+                  "value": "Egypt",
+                  "type": "text",
+                  "uuid": "19732d84-0049-4da7-b8aa-52361fb07a19"
+                },
+                {
+                  "key": "email",
+                  "value": "{{email}}",
+                  "type": "text",
+                  "uuid": "124f0705-7750-4e40-94ea-7d873263c7cd"
+                },
+                {
+                  "key": "firstname",
+                  "value": "updaated",
+                  "type": "text",
+                  "uuid": "ea22ba22-46d0-4a5d-9a9a-18df4da7f366"
+                },
+                {
+                  "key": "lastname",
+                  "value": "user",
+                  "type": "text",
+                  "uuid": "7b5937b1-c0fb-47dc-8acd-cb9352a4fc65"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "01111111111",
+                  "type": "text",
+                  "uuid": "ce6b506b-ae0d-4aed-9766-bd3aee6acc34"
+                },
+                {
+                  "key": "name",
+                  "value": "updated",
+                  "type": "text",
+                  "uuid": "50fb5cb3-3317-4fbc-8c92-9c1f39e6bad5"
+                },
+                {
+                  "key": "password",
+                  "value": "123456",
+                  "type": "text",
+                  "uuid": "5b975714-9d4f-4b16-88a4-43ba6083e5d0"
+                },
+                {
+                  "key": "state ",
+                  "value": "Cairo",
+                  "type": "text",
+                  "uuid": "d9135856-216b-4545-ae8b-61751fb35977"
+                },
+                {
+                  "key": "title",
+                  "value": "Mr",
+                  "type": "text",
+                  "uuid": "a5c528f6-3c74-4f31-9b5c-5b810052f6fa"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "12345",
+                  "type": "text",
+                  "uuid": "ff2dc16f-5bd7-47f2-9144-3a5adf8fa48c"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/updateAccount",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "updateAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[E2E] Get User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"User fetched\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/getUserDetailByEmail?email={{email}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "getUserDetailByEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{email}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[E2E] Delete Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Account deleted\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "{{email}}",
+                  "type": "text",
+                  "uuid": "364d1dfc-b5f7-4ea8-adfe-9f786a51c147"
+                },
+                {
+                  "key": "password",
+                  "value": "123456",
+                  "type": "text",
+                  "uuid": "05d610e7-40d5-49f7-ab72-c01349efdda2"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/deleteAccount",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "deleteAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "[E2E] Get User After Delete",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"User no longer exists\", function () {\r",
+                  "    let jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.not.eql(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/getUserDetailByEmail?email={{email}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "getUserDetailByEmail"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "{{email}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
