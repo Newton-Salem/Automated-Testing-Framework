@@ -100,7 +100,6 @@ All API tests are created and organized using Postman.
 
 - 📦 Postman Collection Location:  
   [view api testing](api-tests/collections/)
-- How to use:
 - Import the collection into Postman
 - Set environment variable: base_url and email
 - Run API test cases
