@@ -58,12 +58,47 @@ Most functionalities are working correctly. However, issues exist in address aut
 
 ## 🔹 G5 – UI, Navigation & Miscellaneous Features
 
-- **Total Test Cases:** 20
-- **Passed:** 6
+- **Total Test Cases:** 20  
+- **Passed:** 6  
 - **Failed:** 12  
 
 **Summary:**  
 Testing covered multiple features including login, search, cart, and checkout flows. Results indicate moderate stability with several issues in validation, usability, and UI consistency.
+
+---
+
+## 🔹 G6 – Database Testing (SQL & Backend Validation)
+
+- **Total Test Cases:** 54  
+- **Passed:** 54  
+- **Failed:** 0  
+
+**Coverage:**  
+Database testing was executed to validate data integrity, consistency, and backend business logic across all major OpenCart modules.
+
+**Modules Covered:**
+- Customer Management  
+- Order Processing  
+- Product & Category Management  
+- System Configuration  
+- Negative & Edge Cases  
+
+**Summary:**  
+Database testing confirms strong backend stability and correct relational integrity across all system modules. All operations such as order creation, product mapping, customer registration, and coupon usage are correctly reflected in the database.
+
+Key validations include:
+- Referential integrity between tables (no orphan records)
+- Correct order processing and product linkage (`oc_order`, `oc_order_product`)
+- Accurate total calculations including shipping and discounts
+- Proper customer data storage and login tracking
+- Product-category relationship consistency
+- Coupon usage tracking and validation
+- Enforcement of constraints (NULL, duplicates, invalid values)
+- Security validation (SQL injection prevention)
+
+**Artifacts Location:**
+- `manual-tests/database/`
+- `database/sql/query.sql`
 
 ---
 
@@ -116,7 +151,7 @@ Testing covered multiple features including login, search, cart, and checkout fl
 
 ## 🔸 G5 – UI/UX, Validation & Functional Issues
 
-- **Total Bugs:** 12
+- **Total Bugs:** 12  
 
 **Issues:**
 - Multiple UI/UX inconsistencies  
@@ -128,17 +163,21 @@ Testing covered multiple features including login, search, cart, and checkout fl
 
 # 📌 Conclusion
 
-Overall, the system demonstrates **moderate stability** across all modules.
+Overall, the system demonstrates **moderate stability across all modules**, with **strong reliability in database layer validation**.
+
+---
 
 ### Key areas requiring improvement:
 - Input validation (registration & payment)
 - Search accuracy
 - UI/UX consistency
 - Cart usability enhancements
-  
+
 ---
 
 # 📁 File Structure
 
 - `manual-tests/test-cases/` → Test Cases  
 - `manual-tests/bug-reports/` → Bug Reports  
+- `manual-tests/database/` → Database Test Cases  
+- `database/sql/query.sql` → SQL Queries
