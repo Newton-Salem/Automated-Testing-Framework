@@ -108,6 +108,24 @@ All API tests are created and organized using Postman.
   [postman-workspace-link](https://newtonsalem669-8413605.postman.co/workspace/Newton-Salem's-Workspace~0d4e24d1-2842-4d00-8be6-739cf662ec26/collection/53523174-9ead3703-cab2-4841-a9d8-8e5089352025?action=share&creator=53523174&active-environment=53523174-ade53947-7d07-43ba-ac1d-1008edbdc1b2) 
 
 ---
+## 📊 Database Testing
+
+### 🟢 Customer Module
+- [Test Cases](manual-tests/database/customer-db-test-cases.xlsx)
+- [SQL Validation](database/sql/query.sql)
+
+### 🔵 Covered Modules
+- Customer
+- Order
+- Product
+- System Validation
+
+### ✅ What is validated
+- Data integrity
+- Foreign key relationships
+- Constraints (NULL, duplicates)
+- Business logic (orders, cart, coupons)
+---
 
 ## 👨‍💻 Team Members
 
