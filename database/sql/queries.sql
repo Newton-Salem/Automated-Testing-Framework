@@ -179,7 +179,7 @@ WHERE c.type = 'P';
 
 
 -- =========================================
--- 🟢 CUSTOMER MODULE (YOUR PART 🔥)
+-- 🟢 CUSTOMER MODULE 
 -- =========================================
 
 -- Customer Exists
