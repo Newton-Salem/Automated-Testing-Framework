@@ -37,17 +37,36 @@ Automated-Testing-Framework/
 
 - README.md
 
-## 🛠️ Tools & Technologies
+## 🛠️ Tools & Technologies Used
 
+This project was developed and tested using the following tools and technologies:
+
+### 🔹 Programming Language
 - Java
+
+### 🔹 Test Automation & Testing Tools
 - Selenium WebDriver
 - TestNG
-- Maven
 - Postman
 - Apache JMeter
-- Jenkins 
-- Jira 
-- Git & GitHub 
+
+### 🔹 Build & Dependency Management
+- Maven
+
+### 🔹 CI/CD
+- Jenkins
+
+### 🔹 Test Management
+- Jira
+
+### 🔹 Version Control
+- Git
+- GitHub
+
+### 🔹 Database & Environment
+- MySQL
+- phpMyAdmin
+- XAMPP (Local Server Environment)
 
 ---
 
