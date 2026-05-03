@@ -1,4 +1,4 @@
-# 🧪 Database Testing Workspace - OpenCart Project
+# 🧪 Database Testing Workspace
 
 ## 📌 Overview
 This folder contains the SQL workspace used for database testing of the OpenCart system.
