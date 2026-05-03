@@ -113,12 +113,6 @@ All API tests are created and organized using Postman.
 - Order
 - Product
 - System Validation
-
-### ✅ What is validated
-- Data integrity
-- Foreign key relationships
-- Constraints (NULL, duplicates)
-- Business logic (orders, cart, coupons)
 ---
 
 ## 👨‍💻 Team Members
