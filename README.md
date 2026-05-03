@@ -106,7 +106,7 @@ All API tests are created and organized using Postman.
 
 ### 🟢 Customer Module
 - [Test Cases](manual-tests/database/Database.xlsx)
-- [SQL Validation](database/sql/queries.sql)
+- [SQL Workspace](database/sql/queries.sql)
 
 ### 🔵 Covered Modules
 - Customer
